@@ -1,0 +1,99 @@
+// import { Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
+import { getHome, mapHeader } from "../api/umbraco";
+import type { NavItem } from "../api/umbraco";
+
+export function SiteHeader() {
+  const [open, setOpen] = useState(false);
+  const [nav, setNav] = useState<NavItem[]>([]);
+
+
+  useEffect(() => {
+    getHome().then((data) => {
+      setNav(mapHeader(data));
+    });
+  }, []);
+
+  return (
+    <header
+      className="sticky top-0 z-40 bg-white transition-all"
+    >
+      <div className="mx-auto flex h-24 max-w-[1400px] items-center justify-between px-6 md:px-10">
+        
+        {/* LOGO */}
+        <a
+          href="/"
+          aria-label="Nordvikens kommun — hem"
+          className="group flex flex-col leading-[0.78] text-foreground"
+        >
+          <span className="font-black text-[26px] md:text-[30px] tracking-[-0.04em]">
+            NORD
+          </span>
+          <span className="font-black text-[26px] md:text-[30px] tracking-[-0.04em]">
+            VIKEN
+          </span>
+        </a>
+
+        {/* DESKTOP NAV */}
+        <nav className="hidden md:flex items-center gap-2">
+          {nav
+            .filter((n) => !n.isButtonCTA)
+            .map((n) => (
+              <a
+                key={n.url}
+                href={n.url}
+                className="group relative px-4 py-2 text-base font-semibold text-foreground/75 hover:text-foreground transition-colors"
+              >
+                <span>{n.label}</span>
+                <span 
+                    className="
+                    pointer-events-none absolute left-4 bottom-0 h-[2px] w-[calc(100%-2rem)]
+                    bg-black origin-left scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100" />
+              </a>
+            ))}
+
+          {/* CTA */}
+          {nav.find((n) => n.isButtonCTA) && (
+            <a
+              href={nav.find((n) => n.isButtonCTA)?.url}
+              className="ml-4 inline-flex items-center gap-2 rounded-sm bg-ink px-5 py-3 text-sm font-bold text-ink-foreground hover:translate-y-[-2px] transition-transform"
+            >
+              {nav.find((n) => n.isButtonCTA)?.label}
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
+          )}
+        </nav>
+
+        {/* MOBILE BUTTON */}
+        <button
+          aria-label={open ? "Stäng meny" : "Öppna meny"}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+          className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-foreground"
+        >
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
+      </div>
+
+      {/* MOBILE MENU */}
+      {open && (
+        <div className="md:hidden border-t border-border bg-background">
+          <div className="mx-auto max-w-[1400px] px-6 py-6 flex flex-col">
+            {nav.map((n) => (
+              <a
+                key={n.url}
+                href={n.url}
+                onClick={() => setOpen(false)}
+                className="flex items-center justify-between border-b border-border py-4 text-2xl font-bold tracking-tight"
+              >
+                <span>{n.label}</span>
+                <ArrowUpRight className="h-5 w-5" />
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}

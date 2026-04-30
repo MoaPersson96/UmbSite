@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cms", "cms", "{A2FC2072-26D3-4358-3AD3-E963AA59AD12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cms", "cms\Cms\Cms.csproj", "{2CCB19F6-BDA0-83EA-DC80-31162BB9E994}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2CCB19F6-BDA0-83EA-DC80-31162BB9E994}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CCB19F6-BDA0-83EA-DC80-31162BB9E994}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CCB19F6-BDA0-83EA-DC80-31162BB9E994}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CCB19F6-BDA0-83EA-DC80-31162BB9E994}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2CCB19F6-BDA0-83EA-DC80-31162BB9E994} = {A2FC2072-26D3-4358-3AD3-E963AA59AD12}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {11D583E1-116F-48B5-8740-AAC79469F03F}
+	EndGlobalSection
+EndGlobal
