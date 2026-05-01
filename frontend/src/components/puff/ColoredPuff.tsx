@@ -1,41 +1,63 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight } from "lucide-react";
 
-interface ColoredPuffProps {
-    label: string;
-    title: string;
-    href?: string;
-    arrowBackgroundColor?: string;
+export interface BlurbItem {
+  label: string;
+  title: string;
+  href?: string;
+  color?: "brand" | "ink" | "earth" | "muted";
 }
 
-export function ColoredPuff({
-  label,
-  title,
-  href,
-  arrowBackgroundColor = "#F3F4F6",
-}: ColoredPuffProps) {
-  const content = (
-    <div className="group relative flex flex-col justify-between min-h-[220px] rounded-sm bg-[#f8f8f8] p-7 text-black transition-transform hover:-translate-y-1">
-      
-      {/* Label */}
-      <div className="text-xs font-bold uppercase tracking-[0.2em] text-black/60 text-center">
-        {label}
-      </div>
+const dotColor: Record<NonNullable<BlurbItem["color"]>, string> = {
+  brand: "bg-[#95682A] text-white",
+  ink: "bg-[#151515] text-white",
+  earth: "bg-[#ffae00] text-black",
+  muted: "bg-[#151515b3] text-white",
+};
 
-      {/* Bottom row (DETTA är viktigt) */}
-      <div className="flex flex-col items-center gap-6 mt-12 text-center">
-        <h3 className="text-xl md:text-2xl font-bold leading-tight max-w-[18ch]">
-          {title}
-        </h3>
+type Props = {
+  items: BlurbItem[];
+};
 
-        <span
-          className="flex h-10 w-10 items-center justify-center rounded-full transition-transform group-hover:rotate-[-45deg]"
-          style={{ backgroundColor: arrowBackgroundColor }}
-        >
-          <ArrowRight className="h-5 w-5 text-black" />
-        </span>
+export function ColoredPuff({ items }: Props) {
+  return (
+    <section className="mx-auto max-w-[1400px] px-6 md:px-10 mt-16 md:mt-20">
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {items.map((item) => {
+
+          const rawColor = item.color;
+
+          const validColors = ["brand", "ink", "earth", "muted"] as const;
+          type Color = typeof validColors[number];
+
+          const safeColor: Color =
+            rawColor && validColors.includes(rawColor as Color)
+              ? (rawColor as Color)
+              : "ink";
+
+          return (
+            <div
+              key={item.title}
+              className="group flex h-full flex-col items-center justify-between gap-8 bg-surface-muted p-10 text-center min-h-[260px] bg-[#f8f8f8] transition-colors hover:bg-foreground/5"
+            >
+              <div className="text-xs font-bold uppercase tracking-[0.2em] text-foreground">
+                {item.label}
+              </div>
+
+              <h3 className="text-2xl md:text-[28px] font-extrabold leading-[1.1] tracking-tight text-foreground max-w-[16ch]">
+                {item.title}
+              </h3>
+
+              <span
+                className={`flex h-12 w-12 items-center justify-center rounded-full transition-transform group-hover:rotate-[-45deg] ${
+                  dotColor[safeColor]
+                }`}
+              >
+                <ArrowRight className="h-5 w-5" />
+              </span>
+            </div>
+          );
+        })}
       </div>
-    </div>
+    </section>
   );
-
-  return href ? <a href={href}>{content}</a> : content;
 }

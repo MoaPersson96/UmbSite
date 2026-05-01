@@ -26,7 +26,7 @@ export function Hero({ image, label, title, ctaLabel = "Läs mer", ctaHref = "#"
                         <div className="w-full max-w-[560px] mt-[12vh]">
                             <div className="bg-white p-8 md:p-12">
                                 {label && (
-                                    <div className="text-sm font-bold uppercase tracking-[0.2rem] text-muted-foreground mb-5">
+                                    <div className="text-sm font-bold uppercase tracking-[0.2rem] text-gray-500 mb-5">
                                         {label}
                                     </div>
                                 )}

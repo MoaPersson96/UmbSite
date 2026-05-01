@@ -1,24 +1,30 @@
 // import { Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
-import { getHome, mapHeader } from "../api/umbraco";
 import type { NavItem } from "../api/umbraco";
+import type { AllowedColor } from "./utils/colors";
 
-export function SiteHeader() {
+type HeaderProps = {
+  nav: NavItem[];
+};
+
+const navColor: Record<AllowedColor, string> = {
+  brand: "bg-[#95682A] text-white",
+  ink: "bg-[#151515] text-white",
+  earth: "bg-[#ffae00] text-black",
+  muted: "bg-[#151515b3] text-white",
+};
+
+export function SiteHeader({ nav }: HeaderProps) {
   const [open, setOpen] = useState(false);
-  const [nav, setNav] = useState<NavItem[]>([]);
+  
+  console.log("HEADER NAV:", nav);
+  console.log("HEADER CTA:", nav.find((n) => n.isButtonCTA));
 
-
-  useEffect(() => {
-    getHome().then((data) => {
-      setNav(mapHeader(data));
-    });
-  }, []);
+  const cta = nav.find((n) => n.isButtonCTA);
 
   return (
-    <header
-      className="sticky top-0 z-40 bg-white transition-all"
-    >
+    <header className="sticky top-0 z-40 bg-white transition-all">
       <div className="mx-auto flex h-24 max-w-[1400px] items-center justify-between px-6 md:px-10">
         
         {/* LOGO */}
@@ -46,20 +52,24 @@ export function SiteHeader() {
                 className="group relative px-4 py-2 text-base font-semibold text-foreground/75 hover:text-foreground transition-colors"
               >
                 <span>{n.label}</span>
-                <span 
-                    className="
+                <span
+                  className="
                     pointer-events-none absolute left-4 bottom-0 h-[2px] w-[calc(100%-2rem)]
-                    bg-black origin-left scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100" />
+                    bg-black origin-left scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100
+                  "
+                />
               </a>
             ))}
 
           {/* CTA */}
-          {nav.find((n) => n.isButtonCTA) && (
+          {cta && (
             <a
-              href={nav.find((n) => n.isButtonCTA)?.url}
-              className="ml-4 inline-flex items-center gap-2 rounded-sm bg-ink px-5 py-3 text-sm font-bold text-ink-foreground hover:translate-y-[-2px] transition-transform"
+              href={cta.url}
+              className={`ml-4 inline-flex items-center gap-2 rounded-sm px-5 py-3 text-sm font-bold hover:translate-y-[-2px] transition-transform ${
+                navColor[cta.color ?? "ink"]
+              }`}
             >
-              {nav.find((n) => n.isButtonCTA)?.label}
+              {cta.label}
               <ArrowUpRight className="h-4 w-4" />
             </a>
           )}
