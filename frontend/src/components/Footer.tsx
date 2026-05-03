@@ -1,11 +1,10 @@
-
 type FooterProps = {
-    columns: {
-        heading: string;
-        content: {
-            markup: string;
-        };
-    }[];
+  columns: {
+    heading: string;
+    content: {
+      markup: string;
+    };
+  }[];
 };
 
 export function SiteFooter({ columns }: FooterProps) {
@@ -16,12 +15,27 @@ export function SiteFooter({ columns }: FooterProps) {
         {columns.map((col, i) => (
           <div key={i}>
             
-            <h4 className="text-sm font-bold uppercase tracking-wider mb-4">
-              {col.heading}
-            </h4>
+            {i === 0 ? (
+              // LOGGA
+              <div className="flex flex-col leading-[0.85]">
+                <span className="font-black text-2xl tracking-tighter">NORD</span>
+                <span className="font-black text-2xl tracking-tighter">VIKEN</span>
+              </div>
+            ) : (
+              <h4 className="text-sm font-bold uppercase tracking-wider mb-4">
+                {col.heading}
+              </h4>
+            )}
 
             <div
-              className="text-sm text-muted-foreground space-y-2"
+              className="
+                mt-4
+                text-sm text-gray-500
+                [&>ul]:space-y-2
+                [&>ul]:list-none
+                [&>ul]:p-0
+                [&>p]:mb-2
+              "
               dangerouslySetInnerHTML={{ __html: col.content.markup }}
             />
 
@@ -31,7 +45,7 @@ export function SiteFooter({ columns }: FooterProps) {
       </div>
 
       <div className="border-t border-border">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-6 text-xs text-muted-foreground flex justify-between">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-6 text-xs text-gray-500 flex flex-wrap justify-between gap-2">
           <span>© {new Date().getFullYear()} Nordvikens kommun</span>
           <span>Org.nr 212000-0000</span>
         </div>

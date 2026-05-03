@@ -1,6 +1,7 @@
-// import { Link } from "@tanstack/react-router";
 import { useState } from "react";
+import { Link, useLocation } from "@tanstack/react-router";
 import { Menu, X, ArrowUpRight } from "lucide-react";
+
 import type { NavItem } from "../api/umbraco";
 import type { AllowedColor } from "./utils/colors";
 
@@ -15,22 +16,21 @@ const navColor: Record<AllowedColor, string> = {
   muted: "bg-[#151515b3] text-white",
 };
 
+
 export function SiteHeader({ nav }: HeaderProps) {
   const [open, setOpen] = useState(false);
-  
-  console.log("HEADER NAV:", nav);
-  console.log("HEADER CTA:", nav.find((n) => n.isButtonCTA));
+  const location = useLocation();
 
   const cta = nav.find((n) => n.isButtonCTA);
+  const links = nav.filter((n) => !n.isButtonCTA);
 
   return (
     <header className="sticky top-0 z-40 bg-white transition-all">
       <div className="mx-auto flex h-24 max-w-[1400px] items-center justify-between px-6 md:px-10">
-        
+
         {/* LOGO */}
-        <a
-          href="/"
-          aria-label="Nordvikens kommun — hem"
+        <Link
+          to="/"
           className="group flex flex-col leading-[0.78] text-foreground"
         >
           <span className="font-black text-[26px] md:text-[30px] tracking-[-0.04em]">
@@ -39,39 +39,43 @@ export function SiteHeader({ nav }: HeaderProps) {
           <span className="font-black text-[26px] md:text-[30px] tracking-[-0.04em]">
             VIKEN
           </span>
-        </a>
+        </Link>
 
         {/* DESKTOP NAV */}
         <nav className="hidden md:flex items-center gap-2">
-          {nav
-            .filter((n) => !n.isButtonCTA)
-            .map((n) => (
-              <a
-                key={n.url}
-                href={n.url}
-                className="group relative px-4 py-2 text-base font-semibold text-foreground/75 hover:text-foreground transition-colors"
+          {links.map((n) => {
+            const isActive = location.pathname === n.url;
+          
+
+            return (
+              <Link
+                key={n.label}
+                to={n.url}
+                className={`group relative px-4 py-2 text-base font-semibold transition-colors
+                  ${isActive ? "text-black" : "text-gray-500 hover:text-black"}
+                  `}
               >
                 <span>{n.label}</span>
-                <span
-                  className="
-                    pointer-events-none absolute left-4 bottom-0 h-[2px] w-[calc(100%-2rem)]
-                    bg-black origin-left scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100
-                  "
-                />
-              </a>
-            ))}
+
+                <span className={`
+                  pointer-events-none absolute left-4 bottom-0 h-[2px] w-[calc(100%-2rem)] bg-black origin-left transition-transform duration-300 ease-out
+                  ${isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}
+                `}
+                 />
+              </Link>
+            );
+          })}
 
           {/* CTA */}
           {cta && (
-            <a
-              href={cta.url}
+            <Link to={cta.url}
               className={`ml-4 inline-flex items-center gap-2 rounded-sm px-5 py-3 text-sm font-bold hover:translate-y-[-2px] transition-transform ${
                 navColor[cta.color ?? "ink"]
               }`}
             >
               {cta.label}
               <ArrowUpRight className="h-4 w-4" />
-            </a>
+            </Link>
           )}
         </nav>
 
@@ -90,17 +94,22 @@ export function SiteHeader({ nav }: HeaderProps) {
       {open && (
         <div className="md:hidden border-t border-border bg-background">
           <div className="mx-auto max-w-[1400px] px-6 py-6 flex flex-col">
-            {nav.map((n) => (
-              <a
-                key={n.url}
-                href={n.url}
-                onClick={() => setOpen(false)}
-                className="flex items-center justify-between border-b border-border py-4 text-2xl font-bold tracking-tight"
-              >
-                <span>{n.label}</span>
-                <ArrowUpRight className="h-5 w-5" />
-              </a>
-            ))}
+
+            {nav.map((n) => {
+
+              return (
+                <Link
+                  key={n.label}
+                  to={n.url}
+                  onClick={() => setOpen(false)}
+                  className="flex items-center justify-between border-b border-border py-4 text-2xl font-bold tracking-tight"
+                >
+                  <span>{n.label}</span>
+                  <ArrowUpRight className="h-5 w-5" />
+                </Link>
+              );
+            })}
+
           </div>
         </div>
       )}
