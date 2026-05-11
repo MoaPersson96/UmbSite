@@ -11,7 +11,7 @@ interface CTABannerProps {
 
 const ctaColors: Record<NonNullable<CTABannerProps["color"]>, string> = {
   brand: "bg-[#95682A] text-white",
-  ink: "bg-[#151515] text-white",
+  ink: "bg-[#000000] text-white",
   earth: "bg-[#ffae00] text-black",
   muted: "bg-[#151515b3] text-white",
 };
