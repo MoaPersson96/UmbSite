@@ -1,8 +1,7 @@
 import { PageLayout } from "../components/PageLayout";
 import { ArticleBody } from "../components/text/ArticleBody";
 import { NewsList } from "../components/puff/NewsPuff";
-import { Route } from "../routes/nyheter.$slug";
-import { Link } from "@tanstack/react-router";
+import { Route } from "../routes/nyheter/$slug";
 
 export function NewsPostPage() {
   const { post, others } = Route.useLoaderData();
@@ -11,7 +10,7 @@ export function NewsPostPage() {
     <PageLayout>
       <article className="mx-auto max-w-[820px] px-6 md:px-0 pt-16 md:pt-24">
         <div className="text-center">
-          <div className="text-xs font-bold uppercase tracking-[0.25em] text-foreground/70">
+          <div className="text-xs font-bold uppercase tracking-[0.25em] text-black/70">
             Nyheter
           </div>
 
@@ -19,11 +18,11 @@ export function NewsPostPage() {
             {post.title}
           </h1>
 
-          <div className="mt-5 text-sm font-bold italic text-foreground/80">
+          <div className="mt-5 text-sm font-bold italic text-black/80">
             {post.date}
           </div>
 
-          <p className="mt-8 text-lg text-foreground/80 leading-relaxed max-w-[640px] mx-auto">
+          <p className="mt-8 text-lg text-black/80 leading-relaxed max-w-[640px] mx-auto">
             {post.excerpt}
           </p>
         </div>
@@ -51,11 +50,6 @@ export function NewsPostPage() {
         <NewsList items={others} />
       </div>
 
-      <div className="text-center mt-10">
-        <Link to="/nyheter" className="underline">
-          Tillbaka till nyheter
-        </Link>
-      </div>
     </PageLayout>
   );
 }

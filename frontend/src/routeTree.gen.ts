@@ -13,7 +13,8 @@ import { Route as TjansterRouteImport } from './routes/tjanster'
 import { Route as NyheterRouteImport } from './routes/nyheter'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as NyheterSlugRouteImport } from './routes/nyheter.$slug'
+import { Route as NyheterIndexRouteImport } from './routes/nyheter/index'
+import { Route as NyheterSlugRouteImport } from './routes/nyheter/$slug'
 
 const TjansterRoute = TjansterRouteImport.update({
   id: '/tjanster',
@@ -35,8 +36,14 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NyheterIndexRoute = NyheterIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => NyheterRoute,
+} as any)
 const NyheterSlugRoute = NyheterSlugRouteImport.update({
-  id: '/nyheter/$slug',
+  id: '/$slug',
+  path: '/$slug',
   getParentRoute: () => NyheterRoute,
 } as any)
 
@@ -46,13 +53,14 @@ export interface FileRoutesByFullPath {
   '/nyheter': typeof NyheterRouteWithChildren
   '/tjanster': typeof TjansterRoute
   '/nyheter/$slug': typeof NyheterSlugRoute
+  '/nyheter/': typeof NyheterIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/kontakt': typeof KontaktRoute
-  '/nyheter': typeof NyheterRouteWithChildren
   '/tjanster': typeof TjansterRoute
   '/nyheter/$slug': typeof NyheterSlugRoute
+  '/nyheter': typeof NyheterIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -61,12 +69,19 @@ export interface FileRoutesById {
   '/nyheter': typeof NyheterRouteWithChildren
   '/tjanster': typeof TjansterRoute
   '/nyheter/$slug': typeof NyheterSlugRoute
+  '/nyheter/': typeof NyheterIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/kontakt' | '/nyheter' | '/tjanster' | '/nyheter/$slug'
+  fullPaths:
+    | '/'
+    | '/kontakt'
+    | '/nyheter'
+    | '/tjanster'
+    | '/nyheter/$slug'
+    | '/nyheter/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/kontakt' | '/nyheter' | '/tjanster' | '/nyheter/$slug'
+  to: '/' | '/kontakt' | '/tjanster' | '/nyheter/$slug' | '/nyheter'
   id:
     | '__root__'
     | '/'
@@ -74,6 +89,7 @@ export interface FileRouteTypes {
     | '/nyheter'
     | '/tjanster'
     | '/nyheter/$slug'
+    | '/nyheter/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -113,6 +129,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/nyheter/': {
+      id: '/nyheter/'
+      path: '/'
+      fullPath: '/nyheter/'
+      preLoaderRoute: typeof NyheterIndexRouteImport
+      parentRoute: typeof NyheterRoute
+    }
     '/nyheter/$slug': {
       id: '/nyheter/$slug'
       path: '/$slug'
@@ -125,10 +148,12 @@ declare module '@tanstack/react-router' {
 
 interface NyheterRouteChildren {
   NyheterSlugRoute: typeof NyheterSlugRoute
+  NyheterIndexRoute: typeof NyheterIndexRoute
 }
 
 const NyheterRouteChildren: NyheterRouteChildren = {
   NyheterSlugRoute: NyheterSlugRoute,
+  NyheterIndexRoute: NyheterIndexRoute,
 }
 
 const NyheterRouteWithChildren =

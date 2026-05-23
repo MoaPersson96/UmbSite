@@ -17,7 +17,7 @@ export function ArticleBody({ blocks }: ArticleBodyProps) {
         switch (block.type) {
           case "p":
             return (
-              <p key={i} className="text-base md:text-lg text-foreground/80 leading-relaxed">
+              <p key={i} className="text-base md:text-lg text-black/80 leading-relaxed">
                 {block.text}
               </p>
             );
@@ -25,7 +25,7 @@ export function ArticleBody({ blocks }: ArticleBodyProps) {
             return (
               <h2
                 key={i}
-                className="mt-8 text-3xl md:text-4xl font-extrabold tracking-tight text-foreground"
+                className="mt-8 text-3xl md:text-4xl font-extrabold tracking-tight text-black"
               >
                 {block.text}
               </h2>
@@ -34,7 +34,7 @@ export function ArticleBody({ blocks }: ArticleBodyProps) {
             return (
               <h3
                 key={i}
-                className="mt-6 text-2xl md:text-3xl font-extrabold tracking-tight text-foreground"
+                className="mt-6 text-2xl md:text-3xl font-extrabold tracking-tight text-black"
               >
                 {block.text}
               </h3>
@@ -43,7 +43,7 @@ export function ArticleBody({ blocks }: ArticleBodyProps) {
             return (
               <ul
                 key={i}
-                className="list-disc pl-6 space-y-2 text-base md:text-lg text-foreground/80"
+                className="list-disc pl-6 space-y-2 text-base md:text-lg text-black/80"
               >
                 {block.items.map((it) => (
                   <li key={it}>{it}</li>
@@ -54,7 +54,7 @@ export function ArticleBody({ blocks }: ArticleBodyProps) {
             return (
               <ol
                 key={i}
-                className="list-decimal pl-6 space-y-2 text-base md:text-lg text-foreground/80"
+                className="list-decimal pl-6 space-y-2 text-base md:text-lg text-black/80"
               >
                 {block.items.map((it) => (
                   <li key={it}>{it}</li>
@@ -65,7 +65,7 @@ export function ArticleBody({ blocks }: ArticleBodyProps) {
             return (
               <blockquote
                 key={i}
-                className="mt-4 border-l-4 border-foreground pl-6 italic text-base md:text-lg text-foreground/80"
+                className="mt-4 border-l-4 border-foreground pl-6 italic text-base md:text-lg text-black/80"
               >
                 {block.text}
               </blockquote>
