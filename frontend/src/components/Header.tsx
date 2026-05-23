@@ -31,7 +31,7 @@ export function SiteHeader({ nav }: HeaderProps) {
         {/* LOGO */}
         <Link
           to="/"
-          className="group flex flex-col leading-[0.78] text-foreground"
+          className="group flex flex-col leading-[0.78] text-black"
         >
           <span className="font-black text-[26px] md:text-[30px] tracking-[-0.04em]">
             NORD

@@ -13,7 +13,7 @@ export function InfoBox({ title, body }: InfoBoxProps) {
           <Info className="h-5 w-5" />
         </span>
         <div>
-          <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight text-foreground">
+          <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight text-black">
             {title}
           </h3>
           <p className="mt-4 text-base md:text-lg text-gray-900/80 leading-relaxed">

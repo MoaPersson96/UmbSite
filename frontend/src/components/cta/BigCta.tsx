@@ -20,12 +20,12 @@ export function CTABanner({ title, body, ctaLabel, ctaHref = "#", color = "ink" 
   return (
     <section className="mx-auto max-w-[1400px] px-6 md:px-10 mt-16 md:mt-24">
       <div className="bg-[#f8f8f8] py-16 md:py-24 px-6 text-center flex flex-col items-center">
-        <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-foreground max-w-[22ch]">
+        <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-black max-w-[22ch]">
           {title}
         </h2>
         <RichText 
             html={body}
-            className="mt-5 max-w-[60ch] text-base md:text-lg text-foreground/75"
+            className="mt-5 max-w-[60ch] text-base md:text-lg text-black/75"
          />
         <a
           href={ctaHref}

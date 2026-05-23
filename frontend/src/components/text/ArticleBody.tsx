@@ -65,7 +65,7 @@ export function ArticleBody({ blocks }: ArticleBodyProps) {
             return (
               <blockquote
                 key={i}
-                className="mt-4 border-l-4 border-foreground pl-6 italic text-base md:text-lg text-black/80"
+                className="mt-4 border-l-4 border-black pl-6 italic text-base md:text-lg text-black/80"
               >
                 {block.text}
               </blockquote>

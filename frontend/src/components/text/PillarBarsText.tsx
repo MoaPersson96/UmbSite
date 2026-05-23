@@ -10,7 +10,7 @@ export interface PillarItem {
 
 const colorStyles: Record<ColorVariant, string> = {
   brand: "bg-[#95682A] text-white hover:bg-[#7d5523]",
-  ink: "bg-[#151515] text-white hover:bg-[#000000]",
+  ink: "bg-[#000000] text-white hover:bg-[#000000]",
   earth: "bg-[#ffae00] text-black hover:bg-[#e69c00]",
   muted: "bg-[#151515b3] text-white hover:bg-[#151515]",
 };

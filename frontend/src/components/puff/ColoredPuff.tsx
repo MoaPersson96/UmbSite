@@ -37,13 +37,13 @@ export function ColoredPuff({ items }: Props) {
           return (
             <div
               key={item.title}
-              className="group flex h-full flex-col items-center justify-between gap-8 bg-surface-muted p-10 text-center min-h-[260px] bg-[#f8f8f8] transition-colors hover:bg-foreground/5"
+              className="group flex h-full flex-col items-center justify-between gap-8 p-10 text-center min-h-[260px] bg-[#f8f8f8] transition-colors hover:bg-foreground/5"
             >
-              <div className="text-xs font-bold uppercase tracking-[0.2em] text-foreground">
+              <div className="text-xs font-bold uppercase tracking-[0.2em] text-black">
                 {item.label}
               </div>
 
-              <h3 className="text-2xl md:text-[28px] font-extrabold leading-[1.1] tracking-tight text-foreground max-w-[16ch]">
+              <h3 className="text-2xl md:text-[28px] font-extrabold leading-[1.1] tracking-tight text-black max-w-[16ch]">
                 {item.title}
               </h3>
 

@@ -22,17 +22,17 @@ export function Article({
   return (
     <section className="mx-auto max-w-[1400px] px-6 md:px-10 mt-20 md:mt-28">
       <div className="max-w-[760px] mx-auto">
-        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-foreground leading-[1.05]">
+        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-black leading-[1.05]">
           {heading}
         </h1>
         <p className="mt-8 text-lg text-gray-900/80 leading-relaxed">{intro}</p>
 
-        <h2 className="mt-14 text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">
+        <h2 className="mt-14 text-3xl md:text-4xl font-extrabold tracking-tight text-black">
           {sectionTitle}
         </h2>
         <p className="mt-5 text-lg text-gray-900/80 leading-relaxed">{sectionBody}</p>
 
-        <h3 className="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-foreground">
+        <h3 className="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-black">
           {subTitle}
         </h3>
 

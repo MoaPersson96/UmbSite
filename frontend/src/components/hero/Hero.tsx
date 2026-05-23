@@ -30,13 +30,13 @@ export function Hero({ image, label, title, ctaLabel = "Läs mer", ctaHref = "#"
                                         {label}
                                     </div>
                                 )}
-                                <h1 className="text-3xl md:text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground">
+                                <h1 className="text-3xl md:text-5xl font-extrabold leading-[1.05] tracking-tight text-black">
                                     {title}
                                 </h1>
                             </div>
                             <a
                                 href={ctaHref}
-                                className="flex items-center justify-between bg-black px-8 py-5 text-white font-bold hover:bg-ink/90 transition-colors"
+                                className="flex items-center justify-between bg-black px-8 py-5 text-white font-bold hover:bg-black/90 transition-colors"
                             >
                                 <span>{ctaLabel}</span>
                                 <ArrowDown className="h-5 w-5" />

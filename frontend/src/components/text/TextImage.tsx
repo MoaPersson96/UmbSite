@@ -47,11 +47,11 @@ export function TextImage({
         </div>
 
         <div className={`max-w-[520px] ${imageSide === "left" ? "md:pl-6" : "md:pr-6"}`}>
-          <div className="text-sm font-bold text-foreground mb-3">
+          <div className="text-sm font-bold text-black mb-3">
             {label}
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-foreground leading-[1.1]">
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-black leading-[1.1]">
             {title}
           </h2>
 
