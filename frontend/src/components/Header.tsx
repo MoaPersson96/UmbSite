@@ -44,13 +44,14 @@ export function SiteHeader({ nav }: HeaderProps) {
         {/* DESKTOP NAV */}
         <nav className="hidden md:flex items-center gap-2">
           {links.map((n) => {
-            const isActive = location.pathname === n.url;
+            const href = n.label.toLowerCase() === "hem" ? "/" : n.url;
+            const isActive = location.pathname === href;
           
 
             return (
               <Link
                 key={n.label}
-                to={n.url}
+                to={href}
                 className={`group relative px-4 py-2 text-base font-semibold transition-colors
                   ${isActive ? "text-black" : "text-gray-500 hover:text-black"}
                   `}
@@ -96,11 +97,11 @@ export function SiteHeader({ nav }: HeaderProps) {
           <div className="mx-auto max-w-[1400px] px-6 py-6 flex flex-col">
 
             {nav.map((n) => {
-
+              const href = n.label.toLowerCase() === "hem" ? "/" : n.url;
               return (
                 <Link
                   key={n.label}
-                  to={n.url}
+                  to={href}
                   onClick={() => setOpen(false)}
                   className="flex items-center justify-between border-b border-border py-4 text-2xl font-bold tracking-tight"
                 >

@@ -1,21 +1,14 @@
-import { useLoaderData } from "@tanstack/react-router";
+import { Route } from "../routes/kontakt";
+import type { PageBlock } from "@/api/umbraco";
 import { PageLayout } from "../components/PageLayout";
-import { Hero } from "../components/hero/Hero";
-import { TextBlock } from "../components/text/TextBlock";
+import { BlockRenderer } from "../components/blocks/BlockRender";
 
 export function ContactPage() {
-  const blocks = useLoaderData();
-
-  const hero = blocks.find(b => b.type === "heroBlock");
-  const textBlocks = blocks.filter(b => b.type === "textBlock");
+  const blocks = Route.useLoaderData() as PageBlock[];
 
   return (
     <PageLayout>
-      {hero && <Hero {...hero.props} />}
-
-      {textBlocks.map((b, i) => (
-        <TextBlock key={i} {...b.props} />
-      ))}
+      <BlockRenderer blocks={blocks} />
     </PageLayout>
   );
 }
