@@ -18,11 +18,11 @@ export function SiteFooter({ columns }: FooterProps) {
             {i === 0 ? (
               // LOGGA
               <div className="flex flex-col leading-[0.85]">
-                <span className="font-black text-2xl tracking-tighter">NORD</span>
-                <span className="font-black text-2xl tracking-tighter">VIKEN</span>
+                <span className="font-black font-sans text-2xl tracking-tighter">NORD</span>
+                <span className="font-black font-sans text-2xl tracking-tighter">VIKEN</span>
               </div>
             ) : (
-              <h4 className="text-sm font-bold uppercase tracking-wider mb-4">
+              <h4 className="font-sans text-sm font-bold uppercase tracking-wider mb-4">
                 {col.heading}
               </h4>
             )}

@@ -26,11 +26,11 @@ export function InfoCards({ items }: { items: InfoCard[] }) {
             <div className="group flex flex-col items-start justify-center rounded-sm border-2 border-black px-6 py-6 text-center text-black transition-colors hover:bg-black hover:text-white">
               {Icon && <Icon className="mb-3 h-6 w-6" />}
 
-              <div className="text-xs font-bold uppercase tracking-[0.2em] text-black/70">{item.title}</div>
-              <div className="text-2xl font-bold leading-tight mt-3">{item.value}</div>
+              <div className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-black/70">{item.title}</div>
+              <div className="font-sans text-2xl font-bold leading-tight mt-3">{item.value}</div>
 
               {item.extra && (
-                <div className="mt-3 text-sm opacity-70">{item.extra}</div>
+                <div className="mt-3 font-sans text-sm opacity-70">{item.extra}</div>
               )}
             </div>
           );

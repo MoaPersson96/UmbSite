@@ -57,7 +57,7 @@ export function ImageBlock({ items, variant = "grid" }: Props) {
               }
             >
               {/* LABEL */}
-              <div className="text-xs font-bold uppercase tracking-wide">
+              <div className="font-sans text-xs font-bold uppercase tracking-wide">
                 {item.label}
               </div>
 
@@ -65,8 +65,8 @@ export function ImageBlock({ items, variant = "grid" }: Props) {
               <h3
                 className={
                   isGrid
-                    ? "text-xl md:text-2xl font-bold leading-tight max-w-[20ch] mx-auto"
-                    : "mt-5 text-3xl md:text-5xl font-extrabold tracking-tight leading-[1.05] max-w-[18ch]"
+                    ? "text-xl md:text-2xl font-sans font-bold leading-tight max-w-[20ch] mx-auto"
+                    : "mt-5 text-3xl md:text-5xl font-sans font-extrabold tracking-tight leading-[1.05] max-w-[18ch]"
                 }
               >
                 {item.title}

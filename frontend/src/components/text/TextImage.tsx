@@ -47,16 +47,16 @@ export function TextImage({
         </div>
 
         <div className={`max-w-[520px] ${imageSide === "left" ? "md:pl-6" : "md:pr-6"}`}>
-          <div className="text-sm font-bold text-black mb-3">
+          <div className="font-sans text-sm font-bold text-black mb-3">
             {label}
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-black leading-[1.1]">
+          <h2 className="font-sans text-3xl md:text-4xl font-black tracking-tight text-black leading-[1.1]">
             {title}
           </h2>
 
           <div
-            className="mt-5 text-base md:text-lg text-gray-500 leading-relaxed"
+            className="mt-5 font-sans text-base md:text-lg text-gray-500 leading-relaxed"
             dangerouslySetInnerHTML={{ __html: body.markup }}
           />
 
@@ -71,7 +71,7 @@ export function TextImage({
                   <a
                     key={cta.label}
                     href={cta.href ?? "#"}
-                    className={`group flex items-center justify-between px-7 py-5 font-semibold transition-transform hover:translate-x-1 ${
+                    className={`group flex items-center justify-between px-7 py-5 font-sans font-semibold transition-transform hover:translate-x-1 ${
                       ctaColor[color]
                     }`}
                   >

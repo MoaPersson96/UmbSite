@@ -30,15 +30,15 @@ export function NewsList({ items }: { items: NewsPost[] }) {
             </div>
 
             <div className="p-6">
-              <h3 className="text-lg font-bold text-black">
+              <h3 className="font-sans text-lg font-bold text-black">
                 {post.title}
               </h3>
 
-              <div className="mt-2 text-sm font-bold italic text-black/80">
+              <div className="mt-2 font-sans text-sm font-bold italic text-black/80">
                 {post.date}
               </div>
 
-              <p className="mt-4 text-sm text-black/70 leading-relaxed">
+              <p className="mt-4 font-sans text-sm text-black/70 leading-relaxed">
                 {post.excerpt}
               </p>
             </div>

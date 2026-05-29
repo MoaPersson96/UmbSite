@@ -21,11 +21,11 @@ export function WideImageCards({ items }: { items: WideImageCard[] }) {
             <div className="absolute inset-0 bg-black/35" />
 
             <div className="absolute inset-0 p-7 flex flex-col justify-center text-white">
-              <div className="text-xs font-bold uppercase tracking-[0.2em] opacity-90">
+              <div className="font-sans text-xs font-bold uppercase tracking-[0.2em] opacity-90">
                 {item.label}
               </div>
 
-              <h3 className="mt-2 text-2xl md:text-3xl font-extrabold leading-tight max-w-[14ch]">
+              <h3 className="mt-2 text-2xl md:text-3xl font-sans font-extrabold leading-tight max-w-[14ch]">
                 {item.title}
               </h3>
             </div>

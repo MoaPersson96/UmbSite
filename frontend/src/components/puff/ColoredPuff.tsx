@@ -43,7 +43,7 @@ export function ColoredPuff({ items }: Props) {
                 {item.label}
               </div>
 
-              <h3 className="text-2xl md:text-[28px] font-extrabold leading-[1.1] tracking-tight text-black max-w-[16ch]">
+              <h3 className="font-sans text-2xl md:text-[28px] font-extrabold leading-[1.1] tracking-tight text-black max-w-[16ch]">
                 {item.title}
               </h3>
 

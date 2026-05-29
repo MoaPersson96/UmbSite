@@ -33,10 +33,10 @@ export function SiteHeader({ nav }: HeaderProps) {
           to="/"
           className="group flex flex-col leading-[0.78] text-black"
         >
-          <span className="font-black text-[26px] md:text-[30px] tracking-[-0.04em]">
+          <span className="font-black font-sans text-[26px] md:text-[30px] tracking-[-0.04em]">
             NORD
           </span>
-          <span className="font-black text-[26px] md:text-[30px] tracking-[-0.04em]">
+          <span className="font-black font-sans text-[26px] md:text-[30px] tracking-[-0.04em]">
             VIKEN
           </span>
         </Link>
@@ -52,11 +52,11 @@ export function SiteHeader({ nav }: HeaderProps) {
               <Link
                 key={n.label}
                 to={href}
-                className={`group relative px-4 py-2 text-base font-semibold transition-colors
+                className={`group relative px-4 py-2 text-base font-sans font-semibold transition-colors
                   ${isActive ? "text-black" : "text-gray-500 hover:text-black"}
                   `}
               >
-                <span>{n.label}</span>
+                <span className="font-sans">{n.label}</span>
 
                 <span className={`
                   pointer-events-none absolute left-4 bottom-0 h-[2px] w-[calc(100%-2rem)] bg-black origin-left transition-transform duration-300 ease-out
@@ -70,7 +70,7 @@ export function SiteHeader({ nav }: HeaderProps) {
           {/* CTA */}
           {cta && (
             <Link to={cta.url}
-              className={`ml-4 inline-flex items-center gap-2 rounded-sm px-5 py-3 text-sm font-bold hover:translate-y-[-2px] transition-transform ${
+              className={`ml-4 inline-flex items-center gap-2 rounded-sm px-5 py-3 text-sm font-sans font-bold hover:translate-y-[-2px] transition-transform ${
                 navColor[cta.color ?? "ink"]
               }`}
             >
@@ -85,7 +85,7 @@ export function SiteHeader({ nav }: HeaderProps) {
           aria-label={open ? "Stäng meny" : "Öppna meny"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-foreground"
+          className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-black"
         >
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
@@ -93,6 +93,7 @@ export function SiteHeader({ nav }: HeaderProps) {
 
       {/* MOBILE MENU */}
       {open && (
+
         <div className="md:hidden border-t border-border bg-background">
           <div className="mx-auto max-w-[1400px] px-6 py-6 flex flex-col">
 
@@ -103,9 +104,9 @@ export function SiteHeader({ nav }: HeaderProps) {
                   key={n.label}
                   to={href}
                   onClick={() => setOpen(false)}
-                  className="flex items-center justify-between border-b border-border py-4 text-2xl font-bold tracking-tight"
+                  className="flex items-center justify-between border-b border-border py-4 text-2xl font-sans font-bold tracking-tight"
                 >
-                  <span>{n.label}</span>
+                  <span className="font-sans">{n.label}</span>
                   <ArrowUpRight className="h-5 w-5" />
                 </Link>
               );

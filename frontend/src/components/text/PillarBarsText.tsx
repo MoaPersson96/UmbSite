@@ -31,7 +31,7 @@ export function PillarBars({ items }: PillarBarsProps) {
             <li key={item.title}>
               <a
                 href={item.href ?? "#"}
-                className={`group flex items-center justify-between px-8 py-6 transition-colors ${colorStyles[variant]}`}
+                className={`group flex items-center justify-between px-8 py-6 font-sans transition-colors ${colorStyles[variant]}`}
               >
                 <span className="font-bold text-base md:text-lg">
                   {item.title}

@@ -22,21 +22,21 @@ export function Hero({ image, label, title, ctaLabel = "Läs mer", ctaHref = "#"
                 <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent" />
 
                 <div className="absolute inset-0">
-                    <div className="mx-auto h-full max-w-[1400px] px-6 md:px-10 flex items-start">
-                        <div className="w-full max-w-[560px] mt-[12vh]">
-                            <div className="bg-white p-8 md:p-12">
+                    <div className="mx-auto h-full max-w-[1400px] px-6 md:px-10 flex items-center">
+                        <div className="w-full max-w-[560px]">
+                            <div className="bg-zinc-100 p-8 md:p-12">
                                 {label && (
-                                    <div className="text-sm font-bold uppercase tracking-[0.2rem] text-gray-500 mb-5">
+                                    <div className="text-xs font-sans font-bold uppercase tracking-[0.2em] text-black/70 mb-5">
                                         {label}
                                     </div>
                                 )}
-                                <h1 className="text-3xl md:text-5xl font-extrabold leading-[1.05] tracking-tight text-black">
+                                <h1 className="font-sans text-3xl md:text-5xl font-extrabold leading-[1.05] tracking-tight text-black">
                                     {title}
                                 </h1>
                             </div>
                             <a
                                 href={ctaHref}
-                                className="flex items-center justify-between bg-black px-8 py-5 text-white font-bold hover:bg-black/90 transition-colors"
+                                className="font-sans flex items-center justify-between bg-black px-8 py-5 text-white font-bold hover:bg-black/90 transition-colors"
                             >
                                 <span>{ctaLabel}</span>
                                 <ArrowDown className="h-5 w-5" />
