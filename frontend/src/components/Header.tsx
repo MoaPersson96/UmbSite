@@ -10,9 +10,9 @@ type HeaderProps = {
 };
 
 const navColor: Record<AllowedColor, string> = {
-  brand: "bg-[#95682A] text-white",
+  brand: "bg-[#864d2be6] text-white",
   ink: "bg-[#000000] text-white",
-  earth: "bg-[#ffae00] text-black",
+  earth: "bg-[#ef8600] text-black",
   muted: "bg-[#151515b3] text-white",
 };
 

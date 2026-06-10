@@ -35,7 +35,19 @@ export function NewsList({ items }: { items: NewsPost[] }) {
               </h3>
 
               <div className="mt-2 font-sans text-sm font-bold italic text-black/80">
-                {post.date}
+                  {(() => {
+                    const date = new Date(post.date);
+
+                    const month = date.toLocaleDateString("sv-SE", {
+                      month: "long",
+                    });
+
+                    const day = date.getDate();
+                    const year = date.getFullYear();
+                    const capitalizedMonth = month.charAt(0).toUpperCase() + month.slice(1);
+
+                    return `${capitalizedMonth} ${day}, ${year}`;
+                  })()}
               </div>
 
               <p className="mt-4 font-sans text-sm text-black/70 leading-relaxed">

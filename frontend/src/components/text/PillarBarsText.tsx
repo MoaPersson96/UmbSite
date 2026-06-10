@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
 type ColorVariant = "brand" | "ink" | "earth" | "muted";
 
@@ -9,9 +10,9 @@ export interface PillarItem {
 }
 
 const colorStyles: Record<ColorVariant, string> = {
-  brand: "bg-[#95682A] text-white hover:bg-[#7d5523]",
+  brand: "bg-[#864d2be6] text-white hover:bg-[#7d5523]",
   ink: "bg-[#000000] text-white hover:bg-[#000000]",
-  earth: "bg-[#ffae00] text-black hover:bg-[#e69c00]",
+  earth: "bg-[#ef8600] text-black hover:bg-[#e69c00]",
   muted: "bg-[#151515b3] text-white hover:bg-[#151515]",
 };
 
@@ -29,15 +30,16 @@ export function PillarBars({ items }: PillarBarsProps) {
 
           return (
             <li key={item.title}>
-              <a
-                href={item.href ?? "#"}
+              <Link
+                to="/tjanster"
+                onClick={() => console.log("NAVIGATE TO TJANSTER")}
                 className={`group flex items-center justify-between px-8 py-6 font-sans transition-colors ${colorStyles[variant]}`}
               >
                 <span className="font-bold text-base md:text-lg">
                   {item.title}
                 </span>
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </a>
+              </Link>
             </li>
           );
         })}

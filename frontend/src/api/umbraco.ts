@@ -47,7 +47,7 @@ function getImageUrl(raw?: string) {
    GENERIC UMBRACO BLOCK
 ========================= */
 
-type UmbracoBlock<T> = {
+ type UmbracoBlock<T> = {
     content: {
         id: string;
         contentType: string;
@@ -545,7 +545,7 @@ export function mapBlocks(data: Home): PageBlock[] {
                         title: props.title ?? "",
                         body: extractMarkup(props.body),
                         ctaLabel: props.ctaLabel ?? "",
-                        ctaHref: props.ctaHref?.url ?? "#",
+                        ctaHref: props.ctaHref?.url ?? "/tjanster",
                         color: normalizeColor(props.bigCtaColor),
                     },
                 }];
@@ -628,12 +628,13 @@ export function mapBlocks(data: Home): PageBlock[] {
                             title: p.title ?? "",
                             href: 
                                 rawLink?.route?.path ??
-                                rawLink?.url ?? "#",
+                                rawLink?.url ?? "/tjanster",
                             color,
                         };
                     });
 
                 console.log("🟣 FINAL ITEMS:", items);
+
 
                 return [
                     {

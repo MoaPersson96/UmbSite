@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { getHome, mapBlocks } from "../api/umbraco";
 
 import type { PageBlock } from "../api/umbraco";
@@ -18,6 +19,11 @@ export function IndexPage() {
   }, []);
 
   return (
-    <BlockRenderer blocks={blocks} />
+    <>
+      <Helmet>
+        <title>Nordvikens kommun — Leva, växa och verka i norr</title>
+      </Helmet>
+      <BlockRenderer blocks={blocks} />
+    </>
   );
 }

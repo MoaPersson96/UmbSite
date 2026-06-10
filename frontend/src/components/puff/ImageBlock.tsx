@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
 export type ImageBlockItem = {
   label: string;
@@ -16,6 +17,8 @@ type Props = {
 export function ImageBlock({ items, variant = "grid" }: Props) {
   const isGrid = variant === "grid";
 
+  console.log("🖼️ IMAGE BLOCK ITEMS", items);
+
   return (
     <section
       className={
@@ -26,12 +29,13 @@ export function ImageBlock({ items, variant = "grid" }: Props) {
     >
       <div className={isGrid ? "grid md:grid-cols-3 gap-4" : "relative overflow-hidden min-h-[600px] md:min-h-[700px]"}>
         {items.map((item) => (
-          <div
+          <Link
             key={item.title}
+            to="/tjanster"
             className={
               isGrid
-                ? "group relative overflow-hidden h-[460px]"
-                : "group relative overflow-hidden max-w-[760px] min-h-[420px] md:min-h-[520px]"
+                ? "group relative block overflow-hidden h-[460px]"
+                : "group relative block overflow-hidden max-w-[760px] min-h-[420px] md:min-h-[520px]"
             }
           >
             {/* IMAGE */}
@@ -80,19 +84,18 @@ export function ImageBlock({ items, variant = "grid" }: Props) {
               )}
 
               {/* CTA ICON */}
-              <a
-                href={item.href ?? "#"}
+              <span
                 className={
                   isGrid
                     ? "mt-6 mx-auto flex h-12 w-12 items-center justify-center bg-white text-black rounded-full transition-transform duration-300 group-hover:translate-y-[-2px]"
-                    : "mt-10 flex h-16 w-16 items-center justify-center rounded-full bg-[#95682A] text-black transition-transform hover:scale-105"
+                    : "mt-10 flex h-16 w-16 items-center justify-center rounded-full bg-[#ef8600] text-black transition-transform hover:scale-105"
                 }
                 aria-label={item.title}
               >
                 <ArrowRight className="h-5 w-5" />
-              </a>
+              </span>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>

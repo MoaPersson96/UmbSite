@@ -19,13 +19,13 @@ export function CardGrid({ items }: CardGridProps) {
           const content = (
             <div className="group relative flex min-h-[220px] flex-col justify-between bg-black p-7 text-white transition-transform hover:-translate-y-1">
               {/* Label */}
-              <div className="text-[11px] font-bold uppercase tracking-[0.28em] text-white/60">
+              <div className="font-sans text-[11px] font-bold uppercase tracking-[0.28em] text-white/60">
                 {item.label}
               </div>
 
               {/* Bottom content */}
               <div className="mt-12 flex items-end justify-between gap-4">
-                <h3 className="max-w-[18ch] text-2xl font-bold leading-tight">
+                <h3 className="max-w-[18ch] text-2xl font-sans font-bold leading-tight">
                   {item.title}
                 </h3>
 

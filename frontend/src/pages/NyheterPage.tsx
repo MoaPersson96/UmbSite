@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { PageLayout } from "../components/PageLayout";
 import { NewsHero } from "../components/hero/NewsHero";
 import { NewsList } from "../components/puff/NewsPuff";
@@ -8,17 +9,23 @@ type Props = {
 
 export function NewsPage({ data }: Props) {
   return (
-    <PageLayout>
-      {data.hero && (
-        <NewsHero
-          image={data.hero.image}
-          label={data.hero.label}
-          title={data.hero.title}
-          intro={data.hero.intro}
-        />
-      )}
+    <>
+      <Helmet>
+        <title>Nyheter — Nordvikens kommun</title>
+      </Helmet>
 
-      <NewsList items={data.news} />
-    </PageLayout>
+      <PageLayout>
+        {data.hero && (
+          <NewsHero
+            image={data.hero.image}
+            label={data.hero.label}
+            title={data.hero.title}
+            intro={data.hero.intro}
+          />
+        )}
+
+        <NewsList items={data.news} />
+      </PageLayout>
+    </>
   );
 }

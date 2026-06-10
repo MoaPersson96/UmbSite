@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import type { AllowedColor } from "../utils/colors";
 import { isAllowedColor } from "../utils/colors";
 
@@ -21,9 +22,9 @@ interface TextImageProps {
 
 
 const ctaColor: Record<AllowedColor, string> = {
-  brand: "bg-[#95682A] text-white",
+  brand: "bg-[#864d2be6] text-white",
   ink: "bg-[#000000] text-white",
-  earth: "bg-[#ffae00] text-black",
+  earth: "bg-[#ef8600] text-black",
   muted: "bg-[#151515b3] text-white",
 };
 
@@ -68,16 +69,16 @@ export function TextImage({
                   : "ink";
 
                 return (
-                  <a
+                  <Link
                     key={cta.label}
-                    href={cta.href ?? "#"}
+                    to="/tjanster"
                     className={`group flex items-center justify-between px-7 py-5 font-sans font-semibold transition-transform hover:translate-x-1 ${
                       ctaColor[color]
                     }`}
                   >
                     <span>{cta.label}</span>
                     <ArrowRight className="h-5 w-5" />
-                  </a>
+                  </Link>
                 );
               })}
             </div>

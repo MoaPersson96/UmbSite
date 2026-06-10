@@ -20,25 +20,25 @@ export default function ErrorReportBanner({
         {/* Left side */}
         <div className="md:col-span-4">
             {label && (
-                <div className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-neutral-700">
+                <div className="mb-4 font-sans text-xs font-bold uppercase tracking-[0.2em] text-neutral-700">
                     {label}
                 </div>
             )}
 
-            <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.02em] text-black md:text-5xl">
+            <h2 className="font-sans text-4xl font-black leading-[0.95] tracking-[-0.02em] text-black md:text-5xl">
                 {title}
             </h2>
         </div>
 
         {/* Right side */}
         <div className="flex flex-col md:col-span-7 md:col-start-6">
-            <p className="text-lg leading-relaxed text-black/80">
+            <p className="font-sans text-lg leading-relaxed text-black/80">
                 {description}
             </p>
 
             <a
                 href={href}
-                className="mt-8 inline-flex items-center gap-2 self-start border-b-2 border-black pb-1 font-bold transition-all hover:gap-4"
+                className="mt-8 inline-flex items-center gap-2 self-start border-b-2 border-black pb-1 font-sans font-bold transition-all hover:gap-4"
             >
                 <span>{ctaLabel}</span>
 

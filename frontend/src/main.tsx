@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createRouter, RouterProvider } from "@tanstack/react-router";
+import { HelmetProvider } from "react-helmet-async";
 import { routeTree } from "./routeTree.gen";
 import { GlobalProvider } from "./context/GlobalProvider";
 import "./index.css";
@@ -13,8 +14,10 @@ const router = createRouter({
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <GlobalProvider>
-      <RouterProvider router={router} />
-    </GlobalProvider>
+    <HelmetProvider>
+      <GlobalProvider>
+        <RouterProvider router={router} />
+      </GlobalProvider>
+    </HelmetProvider>
   </React.StrictMode>
 );

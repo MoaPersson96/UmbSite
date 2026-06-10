@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-
+import { Link } from "@tanstack/react-router";
 export interface BlurbItem {
   label: string;
   title: string;
@@ -8,9 +8,9 @@ export interface BlurbItem {
 }
 
 const dotColor: Record<NonNullable<BlurbItem["color"]>, string> = {
-  brand: "bg-[#95682A] text-white",
+  brand: "bg-[#864d2be6] text-white",
   ink: "bg-[#000000] text-white",
-  earth: "bg-[#ffae00] text-black",
+  earth: "bg-[#ef8600] text-black",
   muted: "bg-[#151515b3] text-white",
 };
 
@@ -35,8 +35,9 @@ export function ColoredPuff({ items }: Props) {
               : "ink";
 
           return (
-            <div
+            <Link
               key={item.title}
+              to="/tjanster"
               className="group flex h-full flex-col items-center justify-between gap-8 p-10 text-center min-h-[260px] bg-[#f8f8f8] transition-colors hover:bg-foreground/5"
             >
               <div className="text-xs font-bold uppercase tracking-[0.2em] text-black">
@@ -54,7 +55,7 @@ export function ColoredPuff({ items }: Props) {
               >
                 <ArrowRight className="h-5 w-5" />
               </span>
-            </div>
+            </Link>
           );
         })}
       </div>
