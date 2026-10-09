@@ -1,8 +1,31 @@
-Nordviken – Kommunal webbplats
+## Nordviken – Kommunal webbplats
 
 Nordviken är en responsiv kommunal webbplats som utvecklats som ett examensprojekt i samarbete med webbyrån Björnmamman. Projektet är framtaget för att visa hur en modern webbplats kan byggas med återanvändbara komponenter och innehåll som hanteras via ett headless CMS.
 
-Funktioner
+## Skärmbilder
+
+### Startsida
+![Nordvikens startsida](screenshots/Startsida.webp)
+
+### Tjänster
+![Nordvikens tjänster](screenshots/Tjänster.webp)
+
+### Nyheter
+![Nordvikens nyheter](screenshots/Nyheter.webp)
+
+### Nyhetsartikel
+![Nordvikens nyhetsartikel](screenshots/Nyhetsartikel.webp)
+
+### Kontakt
+![Nordvikens kontakt](screenshots/Kontakt.webp)
+
+### Umbraco drag and drop
+![Umbraco drag and drop](screenshots/drag%20and%20drop.webp)
+
+### Umbraco innehållshantering
+![Umbraco innehållshantering](screenshots/Innehållshantering.webp)
+
+### Funktioner
 Responsiv design för mobil, surfplatta och dator.
 Integration med Umbraco CMS för hantering av webbplatsens innehåll.
 Återanvändbara komponenter byggda med React.
@@ -25,10 +48,10 @@ React: Rätt komponenter renderas utifrån innehållet från Umbraco.
 
 Den här lösningen gör det möjligt att hantera innehåll separat från presentationen och att återanvända komponenter på olika sidor.
 
-Syfte
+### Syfte
 
 Syftet med projektet var att utveckla en modern och responsiv kommunal webbplats där innehållet enkelt kan administreras i Umbraco. Projektet gav även möjlighet att fördjupa kunskaperna inom React, TypeScript och integration mellan frontend och ett headless CMS.
 
-Projektstatus
+### Projektstatus
 
 Projektet utvecklades som ett examensarbete och fungerar som en grund för vidareutveckling med fler komponenter, sidor och förbättringar av tillgängligheten.
