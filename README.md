@@ -26,18 +26,20 @@ Nordviken är en responsiv kommunal webbplats som utvecklats som ett examensproj
 ![Umbraco innehållshantering](screenshots/Innehållshantering.webp)
 
 ### Funktioner
-Responsiv design för mobil, surfplatta och dator.
-Integration med Umbraco CMS för hantering av webbplatsens innehåll.
-Återanvändbara komponenter byggda med React.
-Dynamisk rendering av innehåll från Umbraco.
-Möjlighet att ändra och sortera innehåll direkt i Umbraco.
-Tekniker
-React – för att bygga användargränssnittet och återanvändbara komponenter.
-TypeScript – för typning och bättre kontroll över data och komponenter.
-Tailwind CSS – för styling och responsiv design.
-Umbraco CMS – för hantering av webbplatsens innehåll.
-Umbracos API – för att hämta innehåll från CMS till frontend.
-Hur projektet fungerar
+ - Responsiv design för mobil, surfplatta och dator.
+ - Integration med Umbraco CMS för hantering av webbplatsens innehåll.
+ - Återanvändbara komponenter byggda med React.
+ - Dynamisk rendering av innehåll från Umbraco.
+ - Möjlighet att ändra och sortera innehåll direkt i Umbraco.
+
+### Tekniker
+**React** – för att bygga användargränssnittet och återanvändbara komponenter.
+**TypeScript** – för typning och bättre kontroll över data och komponenter.
+**Tailwind CSS** – för styling och responsiv design.
+**Umbraco CMS** – för hantering av webbplatsens innehåll.
+**Umbracos API** – för att hämta innehåll från CMS till frontend.
+
+### Hur projektet fungerar
 
 Projektet använder en headless CMS-arkitektur där innehållshanteringen är separerad från frontend.
 
